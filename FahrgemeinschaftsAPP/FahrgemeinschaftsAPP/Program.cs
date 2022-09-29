@@ -6,15 +6,20 @@ namespace FahrgemeinschaftsAPP
     public class Program
     {
 
-
-
         static void Main(string[] args)
         {
-            Beginning:
+            Console.Title = "Fahrgemeinschaft";
+
+
+
+
+
+
+        Beginning:
 
             //Wahl zwischen login und registrieren
             Console.WriteLine("Please choose a option: ");
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("[1] = Login ");
             Console.WriteLine("[2] = Register ");
             Console.ForegroundColor = ConsoleColor.White;
@@ -28,7 +33,7 @@ namespace FahrgemeinschaftsAPP
                 string password = "root";
 
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Please enter your Username: ");
                 Console.ForegroundColor = ConsoleColor.White;
 
@@ -37,24 +42,24 @@ namespace FahrgemeinschaftsAPP
                 if (usrName == username)
                 {
                     //Password überprüfen
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Please enter your Password: : ");
                     Console.ForegroundColor = ConsoleColor.White;
                     string usrPass = Console.ReadLine();
                     if (usrPass == password)
                     {
 
-                        //Willkommens screen + optionen
-                        home:
+                    //Willkommens screen + optionen
+                    home:
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("    :::       ::: :::::::::: :::        ::::::::   ::::::::    :::   :::   ::::::::::");
-                        Console.WriteLine("   :+:       :+: :+:        :+:       :+:    :+: :+:    :+:  :+:+: :+:+:  :+:        ");
-                        Console.WriteLine("  +:+ +:+ +:+ +:+ +:+ +:+ +:+ +:+ +:+:+ +:+ +:+                                      ");
-                        Console.WriteLine(" +#+  +:+  +#+ +#++:++#   +#+       +#+        +#+    +:+ +#+  +:+  +#+ +#++:++#     ");
-                        Console.WriteLine("+#+ +#+#+ +#+ +#+        +#+       +#+        +#+    +#+ +#+       +#+ +#+           ");
-                        Console.WriteLine("#+#+# #+#+#  #+#        #+#       #+#    #+# #+#    #+# #+#       #+# #+#            ");
-                        Console.WriteLine("###   ###   ########## ########## ########   ########  ###       ### ##########      ");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("    ###       ###   ##########  ###        ########   ##########    ###     ###   ########## ");
+                        Console.WriteLine("   ###       ###   ###         ###        ###        ###    ###   ####   #####   ###        ");
+                        Console.WriteLine("  ##   ##   ##    ###         ###        ###        ###    ###   ### #  #  ###  ###                         ");
+                        Console.WriteLine(" ###  ###  ###  ########     ###        ###        ###    ###   ###  ###  ###  ########     ");
+                        Console.WriteLine("###  #### ###  ###          ###        ###        ###    ###   ###       ###  ###           ");
+                        Console.WriteLine("##### #####  ###          ###         ###        ###    ###   ###       ###  ###            ");
+                        Console.WriteLine("###   ###   ##########   ##########  ########   ##########   ###       ###  ##########      ");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine($"                            Welcome {username}!");
 

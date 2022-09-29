@@ -5,16 +5,16 @@ using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
-    public class Driver : Gen
+    public class Driver
     {
         public void AddDrivers()
         {
             Console.Clear();
-            if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv"))
-            {
-                FileStream newFile = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv", FileMode.Create);
-                newFile.Close();
-            }
+            //if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv"))
+            //{
+            //    FileStream newFile = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv", FileMode.Create);
+            //    newFile.Close();
+            //}
 
 
             //FileStream fs = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Users.csv", FileMode.Open);

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace FahrgemeinschaftsAPP
 {
-    public class Member : Gen
+    public class Member
     {
+       
         public void AddMembere()
         {
             Console.Clear();

@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
-    public class Reg : Gen
+    public class Reg
     {
             public void Registration()
             {

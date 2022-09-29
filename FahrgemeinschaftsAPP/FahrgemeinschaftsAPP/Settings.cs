@@ -14,16 +14,11 @@ namespace FahrgemeinschaftsAPP
             Console.WriteLine("[1] Change Theme");
             Console.WriteLine("[2] Change Username");
             Console.WriteLine("[3] Change Password");
+            Console.WriteLine(" ");
             Console.WriteLine("[4] Back to home");
-            //
-            //int SettingsChoice = Console.ReadLine();
-            //if (SettingsChoice == 4)
-            //{
-            //    goto home
-            //}
-        }
 
-        
-        
+            int settingsChoice = Convert.ToInt32(Console.ReadLine());
+
+        }
     }
 }
