@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
-    internal class Program
+    public class Program
     {
 
 
 
         static void Main(string[] args)
         {
+            Beginning:
 
             //Wahl zwischen login und registrieren
             Console.WriteLine("Please choose a option: ");
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("[1] = Login ");
             Console.WriteLine("[2] = Register ");
             Console.ForegroundColor = ConsoleColor.White;
@@ -27,7 +28,7 @@ namespace FahrgemeinschaftsAPP
                 string password = "root";
 
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Please enter your Username: ");
                 Console.ForegroundColor = ConsoleColor.White;
 
@@ -36,7 +37,7 @@ namespace FahrgemeinschaftsAPP
                 if (usrName == username)
                 {
                     //Password überprüfen
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Please enter your Password: : ");
                     Console.ForegroundColor = ConsoleColor.White;
                     string usrPass = Console.ReadLine();
@@ -44,8 +45,9 @@ namespace FahrgemeinschaftsAPP
                     {
 
                         //Willkommens screen + optionen
+                        home:
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("    :::       ::: :::::::::: :::        ::::::::   ::::::::    :::   :::   ::::::::::");
                         Console.WriteLine("   :+:       :+: :+:        :+:       :+:    :+: :+:    :+:  :+:+: :+:+:  :+:        ");
                         Console.WriteLine("  +:+ +:+ +:+ +:+ +:+ +:+ +:+ +:+ +:+:+ +:+ +:+                                      ");
@@ -57,52 +59,70 @@ namespace FahrgemeinschaftsAPP
                         Console.WriteLine($"                            Welcome {username}!");
 
                         Console.WriteLine("[1] Add Driver");
+                        Console.WriteLine("[2] Add Member");
+                        Console.WriteLine("[3] Setings");
+                        Console.WriteLine("[4] Logout");
+                        Console.WriteLine(" ");
                         int UC = Convert.ToInt32(Console.ReadLine());
 
                         //Opionen auswählen
                         if (UC == 1)
                         {
-                            Console.Clear();
 
-                            //Liste der fahrer
-                            List<Drivers> drivers = new List<Drivers>();
+                            var foo = new Driver();
+                            foo.AddDrivers();
+                            goto home;
 
 
-                            //Hinzugefügten Fahrer ausgeben
-                            
                         }
+                        else if(UC == 2)
+                        {
+                            var bar = new Member();
+                            bar.AddMembere();
+                            goto home;
+                        }
+                        else if (UC == 3)
+                        {
+                            var s = new Settings();
+                            s.SettingsDisplay();
 
+                        }else if(UC == 4)
+                        {
+                            Console.Clear();
+                            goto Beginning;
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Falscher Benutzername oder Password, bitte erneut versuchen.");
+                        goto Beginning;
                         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Wrong password or username please try again! ");
-                }
+
+                
+
+
+            }
+            else if(userChoice == 2)
+            {
+                var bar = new Reg();
+                bar.Registration();
+                goto Beginning;
+            }
+            else
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{userChoice} ist keine option.");
+                Thread.Sleep(1000);
+                goto Beginning;
             }
 
             Console.ReadLine();
-
-
         }
     }
 }
