@@ -1,0 +1,8 @@
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\bin\Debug\FahrgemeinschaftsAPP.exe.config
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\bin\Debug\FahrgemeinschaftsAPP.exe
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\bin\Debug\FahrgemeinschaftsAPP.pdb
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\obj\Debug\FahrgemeinschaftsAPP.csproj.AssemblyReference.cache
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\obj\Debug\FahrgemeinschaftsAPP.csproj.SuggestedBindingRedirects.cache
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\obj\Debug\FahrgemeinschaftsAPP.csproj.CoreCompileInputs.cache
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\obj\Debug\FahrgemeinschaftsAPP.exe
+C:\Projetcs\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\FahrgemeinschaftsAPP\obj\Debug\FahrgemeinschaftsAPP.pdb
