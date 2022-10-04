@@ -12,10 +12,10 @@ namespace FahrgemeinschaftsAPP
         List<string> Members;
         public Member()
         {
-            Members = System.IO.File.ReadLines(memberPath).ToList();
+            Members = File.ReadLines(memberPath).ToList();
         }
 
-        
+
 
         public void AddMembere()
         {
@@ -40,8 +40,8 @@ namespace FahrgemeinschaftsAPP
                 byte[] bdata = Encoding.Default.GetBytes($"{VN}:{TN}:{WN}");
                 Console.Clear();
                 File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv", $"{VN}:{TN}:{WN}\n");
-               
-             
+
+
 
             }
             List<string> lines = System.IO.File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv").ToList();
@@ -49,11 +49,11 @@ namespace FahrgemeinschaftsAPP
         public void DisplayMembers()
         {
             Console.Clear();
-           foreach(string line in Members)
+            foreach (string line in Members)
             {
-                Console.WriteLine(line);    
+                Console.WriteLine(line);
             }
-            
-        } 
+
+        }
     }
 }
