@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FahrgemeinschaftsAPP
 {
     public class Member
     {
-       
+        string memberPath = "C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv";
+        List<string> Members;
+        public Member()
+        {
+            Members = System.IO.File.ReadLines(memberPath).ToList();
+        }
+
+        
+
         public void AddMembere()
         {
             Console.Clear();
-            if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv"))
+            if (!File.Exists(memberPath))
             {
-                FileStream newFile = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv", FileMode.Create);
+                FileStream newFile = new FileStream(memberPath, FileMode.Create);
                 newFile.Close();
             }
 
@@ -25,16 +32,28 @@ namespace FahrgemeinschaftsAPP
             for (int i = 0; i < memberAnzahl; i++)
             {
                 Console.WriteLine("Gebe deinen Vollständigen Namen an: ");
-                string VN = Console.ReadLine();
-                Console.WriteLine("Deine Zeit für Arbeitsbeginn an: ");
-                string TN = Console.ReadLine();
+                Console.Write("> "); string VN = Console.ReadLine();
+                Console.WriteLine("Gebe deine Zeit für Arbeitsbeginn an: ");
+                Console.Write("> "); string TN = Console.ReadLine();
                 Console.WriteLine("Gebe deinen Wohnort an: ");
-                string WN = Console.ReadLine();
+                Console.Write("> "); string WN = Console.ReadLine();
                 byte[] bdata = Encoding.Default.GetBytes($"{VN}:{TN}:{WN}");
                 Console.Clear();
                 File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv", $"{VN}:{TN}:{WN}\n");
+               
+             
 
             }
+            List<string> lines = System.IO.File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv").ToList();
         }
+        public void DisplayMembers()
+        {
+            Console.Clear();
+           foreach(string line in Members)
+            {
+                Console.WriteLine(line);    
+            }
+            
+        } 
     }
 }

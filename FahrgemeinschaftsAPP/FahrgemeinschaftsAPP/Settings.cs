@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
@@ -10,6 +8,7 @@ namespace FahrgemeinschaftsAPP
     {
         public void SettingsDisplay()
         {
+            Settings:
             Console.Clear();
             Console.WriteLine("[1] Change Theme");
             Console.WriteLine("[2] Change Username");
@@ -17,7 +16,38 @@ namespace FahrgemeinschaftsAPP
             Console.WriteLine(" ");
             Console.WriteLine("[4] Back to home");
 
-            int settingsChoice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("> "); int settingsChoice = Convert.ToInt32(Console.ReadLine());
+
+            if (settingsChoice == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Coming soon.");
+                Thread.Sleep(2000);
+                goto Settings;
+            }
+            else if (settingsChoice == 2)
+            {
+
+                Console.Clear();
+                Console.WriteLine("Coming soon.");
+                Thread.Sleep(2000);
+                goto Settings;
+            }
+            else if (settingsChoice == 3)
+            {
+
+                Console.Clear();
+                Console.WriteLine("Coming soon.");
+                Thread.Sleep(2000);
+                goto Settings;
+            }
+            else if (settingsChoice == 4)
+            {
+
+                Console.Clear();
+                Console.WriteLine("Coming soon.");
+                Thread.Sleep(2000);
+            }
 
         }
     }
