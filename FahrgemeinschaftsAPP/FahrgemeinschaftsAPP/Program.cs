@@ -21,16 +21,14 @@ namespace FahrgemeinschaftsAPP
             {
                 //choice between regiserting and login
                 Console.Clear();
-                Console.WriteLine("Please choose a option: ");
+                Console.WriteLine("Please choose a option: ");                
+                Console.WriteLine("------------------------");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(" ");
                 Console.WriteLine("[1] Login ");
                 Console.WriteLine("[2] Register ");
                 Console.WriteLine("[3] Exit");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(" ");
-
-                Console.WriteLine($"");
+                Console.WriteLine("------------------------");
                 Console.Write("> ");
                 userChoice = Console.ReadKey();
 
@@ -92,24 +90,37 @@ namespace FahrgemeinschaftsAPP
                             Thread.Sleep(20);
                             Console.WriteLine($"                            Welcome {usrName}!");
                             Thread.Sleep(20);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("------------------------");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("[1] Add Driver");
                             Thread.Sleep(20);
                             Console.WriteLine("[2] Add Member");
-                            Console.WriteLine(" ");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("------------------------");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Thread.Sleep(20);
                             Console.WriteLine("[3] Display Divers");
                             Thread.Sleep(20);
                             Console.WriteLine("[4] Display Members");
-                            Console.WriteLine(" ");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("------------------------");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Thread.Sleep(20);
                             Console.WriteLine("[5] Add Carpool");
-                            Console.WriteLine(" ");
                             Thread.Sleep(20);
-                            Console.WriteLine("[6] Settings");
+                            Console.WriteLine("[6] Display Carpools");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("------------------------");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Thread.Sleep(20);
-                            Console.WriteLine("[7] Logout");
+                            Console.WriteLine("[7] Settings");
                             Thread.Sleep(20);
-                            Console.WriteLine(" ");
+                            Console.WriteLine("[8] Logout");
+                            Thread.Sleep(20);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("------------------------");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.Write("> ");
                             userInputChoice = Console.ReadKey();
                             if (char.IsDigit(userInputChoice.KeyChar))
@@ -118,23 +129,17 @@ namespace FahrgemeinschaftsAPP
                                 break;
                             }
                         } while (true);
-
-
-
-
                         //Opionen auswählen                     
                         if (USC1 == 1)
                         {
-
                             var drive = new Driver();
                             drive.AddDrivers();
                             goto home;
-
                         }
                         else if (USC1 == 2)
                         {
                             Member newMember = new Member();
-                            newMember.AddMembere();                    
+                            newMember.AddMembere();
                             Thread.Sleep(2000);
                             goto home;
                         }
@@ -148,14 +153,28 @@ namespace FahrgemeinschaftsAPP
                         else if (USC1 == 4)
                         {
                             var dm = new Member();
-                            dm.DisplayMembers();
-                            Console.WriteLine(" ");
-                            Console.WriteLine("[1] Back home");
-                            Console.Write("> "); int userBack = Convert.ToInt32(Console.ReadLine());
-                            if (userBack == 1)
+
+                            int USB = 0;
+                            ConsoleKeyInfo userBack;
+                            do
                             {
-                                goto home;
-                            }
+                                dm.DisplayMembers();
+                                Console.WriteLine(" ");
+                                Console.Clear();
+                                Console.WriteLine("[1] Back home");
+                                Console.Write("> "); userBack = Console.ReadKey();
+                                if (USB == 1)
+                                {
+                                    goto home;
+                                }
+                                if (char.IsDigit(userBack.KeyChar))
+                                {
+                                    USB = int.Parse(userBack.KeyChar.ToString());
+                                    break;
+
+                                }
+                            } while (true);
+
                         }
                         else if (USC1 == 5)
                         {
@@ -167,11 +186,17 @@ namespace FahrgemeinschaftsAPP
                         }
                         else if (USC1 == 6)
                         {
+                            Fahrgemeinschaften DisplayCarP = new Fahrgemeinschaften();
+                            DisplayCarP.DisplayCarpools();
+                            goto home;
+                        }
+                        else if (USC1 == 7)
+                        {
                             var s = new Settings();
                             s.SettingsDisplay();
                             goto home;
                         }
-                        else if (USC1 == 7)
+                        else if (USC1 == 8)
                         {
                             Console.Clear();
                             goto Beginning;
@@ -216,7 +241,6 @@ namespace FahrgemeinschaftsAPP
                     Console.Clear();
                     Console.WriteLine("Invalid Password or username, please try again.");
                 }
-
             }
             //Benutzer wählt option 2 (Registrierung)
             else if (UI == 2)
@@ -259,7 +283,6 @@ namespace FahrgemeinschaftsAPP
                 return true;
             }
             return false;
-
         }
 
         //CSV datei nach password durchsuchen
@@ -271,10 +294,6 @@ namespace FahrgemeinschaftsAPP
             if (filteredPassword != null)
                 return true;
             return false;
-        }
-        public void Home()
-        {
-
         }
     }
 }

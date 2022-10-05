@@ -53,7 +53,9 @@ namespace FahrgemeinschaftsAPP
             
             foreach (string driver in Drivers)
             {
-                Console.WriteLine("---------------------------------------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
                 var test =driver.Split(';');
                 for (int i = 0; i < test.Length; i++)
                 {
@@ -69,6 +71,9 @@ namespace FahrgemeinschaftsAPP
                 }
             }
             Console.WriteLine(" ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("------------------------");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("[4] Back to home");
             int DPB = 0;
             ConsoleKeyInfo dPBack;

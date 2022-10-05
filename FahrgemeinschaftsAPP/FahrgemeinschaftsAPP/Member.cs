@@ -62,9 +62,27 @@ namespace FahrgemeinschaftsAPP
         {
             List<string> lines = System.IO.File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv").ToList();
             Console.Clear();
-            foreach (string line in lines)
+            foreach (string members in lines)
             {
-                Console.WriteLine(line);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
+                var test = members.Split(';');
+                for (int i = 0; i < test.Length; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            Console.WriteLine($"Vollständiger Name: {test[i]}");
+                            break;
+                        case 1:
+                            Console.WriteLine($"Arbeitsbeginn: {test[i]}");
+                            break;
+                        case 2:
+                            Console.WriteLine($"Wohn/Start Or: {test[i]}");
+                            break;
+                    }
+                }
             }
 
         }
