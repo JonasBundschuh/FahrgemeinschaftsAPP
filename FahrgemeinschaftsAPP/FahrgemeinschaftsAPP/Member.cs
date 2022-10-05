@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
@@ -10,13 +11,6 @@ namespace FahrgemeinschaftsAPP
     {
         string memberPath = "C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv";
         List<string> Members;
-        public Member()
-        {
-            Members = File.ReadLines(memberPath).ToList();
-        }
-
-
-
         public void AddMembere()
         {
             Console.Clear();
@@ -25,31 +19,50 @@ namespace FahrgemeinschaftsAPP
                 FileStream newFile = new FileStream(memberPath, FileMode.Create);
                 newFile.Close();
             }
-
+            else
+            {
+                Members = File.ReadLines(memberPath).ToList();
+            }
+            int MA = 0;
+            ConsoleKeyInfo memberAnzahl;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("How many members would you like to add?");
+                memberAnzahl = Console.ReadKey();
+                if (char.IsDigit(memberAnzahl.KeyChar))
+                {
+                    MA = int.Parse(memberAnzahl.KeyChar.ToString());
+                    //break;
+                }            
+                for (int i = 0; i < MA; i++)
+                {
+                    Console.Title = $"FahrgemeinschaftsApp | Adding Member {i + 1}/{MA}";
+                    Console.Clear();
+                    Console.WriteLine("Gebe deinen Vollständigen Namen an: ");
+                    Console.Write("> "); string VN = Console.ReadLine();
+                    Console.WriteLine("Gebe deine Zeit für Arbeitsbeginn an: ");
+                    Console.Write("> "); string TN = Console.ReadLine();
+                    Console.WriteLine("Gebe deinen Wohnort an: ");
+                    Console.Write("> "); string WN = Console.ReadLine();
+                    Console.Clear();
+                    var test = $"{VN};{TN};{WN}\n";
+                    File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv", test, Encoding.UTF8);
+                    Console.WriteLine($"Member {VN} added sunccesfully. ");
+                    Thread.Sleep(2000);                   
+                }                        
+                Console.Title = $"FahrgemeinschaftsApp";                
+                break;
+            } while (true);
 
             //FileStream fs = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Users.csv", FileMode.Open);
-            int memberAnzahl = 1;
-            for (int i = 0; i < memberAnzahl; i++)
-            {
-                Console.WriteLine("Gebe deinen Vollständigen Namen an: ");
-                Console.Write("> "); string VN = Console.ReadLine();
-                Console.WriteLine("Gebe deine Zeit für Arbeitsbeginn an: ");
-                Console.Write("> "); string TN = Console.ReadLine();
-                Console.WriteLine("Gebe deinen Wohnort an: ");
-                Console.Write("> "); string WN = Console.ReadLine();
-                byte[] bdata = Encoding.Default.GetBytes($"{VN}:{TN}:{WN}");
-                Console.Clear();
-                File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv", $"{VN}:{TN}:{WN}\n");
 
-
-
-            }
-            List<string> lines = System.IO.File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv").ToList();
         }
         public void DisplayMembers()
         {
+            List<string> lines = System.IO.File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv").ToList();
             Console.Clear();
-            foreach (string line in Members)
+            foreach (string line in lines)
             {
                 Console.WriteLine(line);
             }

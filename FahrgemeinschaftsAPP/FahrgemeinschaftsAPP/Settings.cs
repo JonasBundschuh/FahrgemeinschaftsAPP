@@ -50,9 +50,7 @@ namespace FahrgemeinschaftsAPP
             }
             else if (SC == 4)
             {
-                Console.Clear();
-                Console.WriteLine("Coming soon.");
-                Thread.Sleep(2000);
+                Console.Clear();                
             }
             else
             {

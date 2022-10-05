@@ -27,6 +27,8 @@ namespace FahrgemeinschaftsAPP
             } while (true);
             for (int i = 0; i < FA; i++)
             {
+                Console.Clear();
+                Console.Title = $"FahrgemeinschaftsApp | Adding Member {i + 1}/{FA}";
                 Console.WriteLine("Gebe den Vornamen des fahrers ein");
                 Console.Write("> "); string VN = Console.ReadLine();
                 Console.WriteLine("Gebe den Nachnamen des fahrers ein");
@@ -36,6 +38,7 @@ namespace FahrgemeinschaftsAPP
                 Console.Clear();
                 File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv", $"{VN};{NN};{TN}\n");
                 Console.WriteLine($"Fahrer {VN} {NN} erfolgreich hinzugefügt!");
+                Console.Title = $"FahrgemeinschaftsApp by Jonas";
                 Thread.Sleep(2000);
             }
         }
@@ -43,23 +46,68 @@ namespace FahrgemeinschaftsAPP
         List<string> Drivers;
         public void DisplayDriver()
         {
-
+            DisplayDrivers:
+            Console.Clear();
+            Console.Title = $"FahrgemeinschaftsApp | Displaying Drivers";
             Drivers = File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv").ToList();
+            
             foreach (string driver in Drivers)
             {
-                Console.WriteLine(driver);
+                Console.WriteLine("---------------------------------------------------------------------------------------");
+                var test =driver.Split(';');
+                for (int i = 0; i < test.Length; i++)
+                {
+                    switch(i)
+                        {
+                        case 0: Console.WriteLine($"Vorname: {test[i]}");
+                            break;
+                        case 1: Console.WriteLine($"Nachname: {test[i]}");
+                            break;
+                        case 2: Console.WriteLine($"Vorraussichtliche Fahrzeit in Stunden: {test[i]}");
+                            break;
+                    }
+                }
             }
             Console.WriteLine(" ");
             Console.WriteLine("[4] Back to home");
-            int DPback = Convert.ToInt32(Console.ReadLine());
-            if (DPback == 4)
-            {
+            int DPB = 0;
+            ConsoleKeyInfo dPBack;
 
-            }
-            else
+            do
             {
-                Console.WriteLine("test");
-            }
+                
+                dPBack = Console.ReadKey();
+                if (char.IsDigit(dPBack.KeyChar))
+                {
+                    DPB = int.Parse(dPBack.KeyChar.ToString());
+                }
+                if (DPB == 4)
+                {
+                    Console.Clear();
+                    break;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Not a option. ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Thread.Sleep(1000);
+                    goto DisplayDrivers;
+
+                }
+              
+
+            } while (true);
+           // int DPback = Convert.ToInt32(Console.ReadLine());
+           // if (DPback == 4)
+           // {
+           //
+           // }
+           // else
+           // {
+           //     Console.WriteLine("test");
+           // }
         }
 
     }

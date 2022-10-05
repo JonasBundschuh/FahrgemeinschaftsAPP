@@ -134,8 +134,8 @@ namespace FahrgemeinschaftsAPP
                         else if (USC1 == 2)
                         {
                             Member newMember = new Member();
-                            newMember.AddMembere(); //wtf?
-
+                            newMember.AddMembere();                    
+                            Thread.Sleep(2000);
                             goto home;
                         }
                         else if (USC1 == 3)
@@ -143,7 +143,6 @@ namespace FahrgemeinschaftsAPP
                             Console.Clear();
                             Driver SD = new Driver();
                             SD.DisplayDriver();
-                            Thread.Sleep(2000);
                             goto home;
                         }
                         else if (USC1 == 4)
