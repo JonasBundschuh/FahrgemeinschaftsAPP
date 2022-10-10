@@ -12,7 +12,7 @@ namespace FahrgemeinschaftsAPP
 
         static void Main(string[] args)
         {
-            Console.Title = "FahrgemeinschaftsApp by Jonas";
+            Console.Title = "CarpoolApp by Jonas";
 
         Beginning:
             int UI = 0;
@@ -21,7 +21,7 @@ namespace FahrgemeinschaftsAPP
             {
                 //choice between regiserting and login
                 Console.Clear();
-                Console.WriteLine("Please choose a option: ");                
+                Console.WriteLine("Please choose a option: ");
                 Console.WriteLine("------------------------");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("[1] Login ");
@@ -153,7 +153,6 @@ namespace FahrgemeinschaftsAPP
                         else if (USC1 == 4)
                         {
                             var dm = new Member();
-
                             int USB = 0;
                             ConsoleKeyInfo userBack;
                             do
@@ -201,6 +200,13 @@ namespace FahrgemeinschaftsAPP
                             Console.Clear();
                             goto Beginning;
                         }
+                        else if (USC1 == 9)
+                        {
+                            Fahrgemeinschaften DelCarpool = new Fahrgemeinschaften();
+                            DelCarpool.Fahrgemeinschaft();
+                            Thread.Sleep(2000);
+                            goto home;
+                        }
                         else
                         {
                             Console.WriteLine("invalid input, please try again!");
@@ -247,7 +253,7 @@ namespace FahrgemeinschaftsAPP
             {
                 var bar = new Reg();
                 bar.Registration();
-                Console.WriteLine("Erfolgreich registriert, du kannst dich jetzt einloggen.");
+                Console.WriteLine("Registered successfully, you can now login.");
                 Console.ForegroundColor = ConsoleColor.White;
                 Thread.Sleep(2000);
                 goto Beginning;
@@ -265,7 +271,7 @@ namespace FahrgemeinschaftsAPP
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{UI} ist keine option.");
+                Console.WriteLine($"{UI} is not an option.");
                 Console.ForegroundColor = ConsoleColor.White;
                 Thread.Sleep(1000);
                 goto Beginning;

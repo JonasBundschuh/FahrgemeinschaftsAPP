@@ -33,10 +33,11 @@ namespace FahrgemeinschaftsAPP
                 Console.Write("> ");
                 settingsChoice = Console.ReadKey();
 
+
                 if (char.IsDigit(settingsChoice.KeyChar))
                 {
                     SC = int.Parse(settingsChoice.KeyChar.ToString());
-                    
+
                 }
                 if (SC == 1)
                 {
@@ -73,7 +74,7 @@ namespace FahrgemeinschaftsAPP
             } while (true);
 
 
-            
+
         }
     }
 }

@@ -37,13 +37,13 @@ namespace FahrgemeinschaftsAPP
                 }            
                 for (int i = 0; i < MA; i++)
                 {
-                    Console.Title = $"FahrgemeinschaftsApp | Adding Member {i + 1}/{MA}";
+                    Console.Title = $"CarpoolApp | Adding Member {i + 1}/{MA}";
                     Console.Clear();
-                    Console.WriteLine("Gebe deinen Vollständigen Namen an: ");
+                    Console.WriteLine("Please enter your full name: ");
                     Console.Write("> "); string VN = Console.ReadLine();
-                    Console.WriteLine("Gebe deine Zeit für Arbeitsbeginn an: ");
+                    Console.WriteLine("When do you start working: ");
                     Console.Write("> "); string TN = Console.ReadLine();
-                    Console.WriteLine("Gebe deinen Wohnort an: ");
+                    Console.WriteLine("Where do you live: ");
                     Console.Write("> "); string WN = Console.ReadLine();
                     Console.Clear();
                     var test = $"{VN};{TN};{WN}\n";
@@ -51,7 +51,7 @@ namespace FahrgemeinschaftsAPP
                     Console.WriteLine($"Member {VN} added sunccesfully. ");
                     Thread.Sleep(2000);                   
                 }                        
-                Console.Title = $"FahrgemeinschaftsApp";                
+                Console.Title = $"CarpoolApp";                
                 break;
             } while (true);
 
@@ -73,13 +73,13 @@ namespace FahrgemeinschaftsAPP
                     switch (i)
                     {
                         case 0:
-                            Console.WriteLine($"Vollständiger Name: {test[i]}");
+                            Console.WriteLine($"Full Name: {test[i]}");
                             break;
                         case 1:
-                            Console.WriteLine($"Arbeitsbeginn: {test[i]}");
+                            Console.WriteLine($"Starting to work at (time): {test[i]}");
                             break;
                         case 2:
-                            Console.WriteLine($"Wohn/Start Or: {test[i]}");
+                            Console.WriteLine($"Living at: {test[i]}");
                             break;
                     }
                 }

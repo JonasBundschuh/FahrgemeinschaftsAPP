@@ -28,7 +28,7 @@ namespace FahrgemeinschaftsAPP
             for (int i = 0; i < FA; i++)
             {
                 Console.Clear();
-                Console.Title = $"FahrgemeinschaftsApp | Adding Member {i + 1}/{FA}";
+                Console.Title = $"FahrgemeinschaftsApp | Adding Carpool {i + 1}/{FA}";
                 Console.WriteLine("Gebe den Vornamen des fahrers ein");
                 Console.Write("> "); string VN = Console.ReadLine();
                 Console.WriteLine("Gebe den Nachnamen des fahrers ein");
@@ -46,26 +46,29 @@ namespace FahrgemeinschaftsAPP
         List<string> Drivers;
         public void DisplayDriver()
         {
-            DisplayDrivers:
+        DisplayDrivers:
             Console.Clear();
             Console.Title = $"FahrgemeinschaftsApp | Displaying Drivers";
             Drivers = File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv").ToList();
-            
+
             foreach (string driver in Drivers)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("------------------------");
                 Console.ForegroundColor = ConsoleColor.White;
-                var test =driver.Split(';');
+                var test = driver.Split(';');
                 for (int i = 0; i < test.Length; i++)
                 {
-                    switch(i)
-                        {
-                        case 0: Console.WriteLine($"Vorname: {test[i]}");
+                    switch (i)
+                    {
+                        case 0:
+                            Console.WriteLine($"Vorname: {test[i]}");
                             break;
-                        case 1: Console.WriteLine($"Nachname: {test[i]}");
+                        case 1:
+                            Console.WriteLine($"Nachname: {test[i]}");
                             break;
-                        case 2: Console.WriteLine($"Vorraussichtliche Fahrzeit in Stunden: {test[i]}");
+                        case 2:
+                            Console.WriteLine($"Vorraussichtliche Fahrzeit in Stunden: {test[i]}");
                             break;
                     }
                 }
@@ -80,7 +83,7 @@ namespace FahrgemeinschaftsAPP
 
             do
             {
-                
+
                 dPBack = Console.ReadKey();
                 if (char.IsDigit(dPBack.KeyChar))
                 {
@@ -101,18 +104,8 @@ namespace FahrgemeinschaftsAPP
                     goto DisplayDrivers;
 
                 }
-              
 
             } while (true);
-           // int DPback = Convert.ToInt32(Console.ReadLine());
-           // if (DPback == 4)
-           // {
-           //
-           // }
-           // else
-           // {
-           //     Console.WriteLine("test");
-           // }
         }
 
     }

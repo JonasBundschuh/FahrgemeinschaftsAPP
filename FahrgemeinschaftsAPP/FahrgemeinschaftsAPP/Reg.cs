@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Dynamic;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace FahrgemeinschaftsAPP
@@ -8,6 +10,7 @@ namespace FahrgemeinschaftsAPP
     {
         public void Registration()
         {
+            Console.Title = "CarpoolApp | Registration";
             Console.Clear();
             if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv"))
             {
@@ -16,10 +19,35 @@ namespace FahrgemeinschaftsAPP
             }
 
         RegLoop:
-            Console.WriteLine("Was soll dein Benutzername sein?: ");
-            Console.Write("> "); string usrUsername = Console.ReadLine();
-            bool invalidChar = usrUsername.Contains(" ");
-            if (usrUsername.StartsWith(" ") || usrUsername.EndsWith(" "))
+           
+            Regex regex = new Regex(@"[a-zA-Z]");
+            string usrUserName;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("What do you want your username to be?: ");
+                Console.Write("> ");
+                var UserInputName = Console.ReadLine();
+                if (UserInputName == regex.ToString())
+                {
+                    usrUserName = (UserInputName.ToString());
+                    break;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"please only enter letters!");
+                    Thread.Sleep(2000);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    goto RegLoop;
+                }
+            } while (true);
+
+            
+
+            bool invalidChar = usrUserName.Contains(" ");
+            if (usrUserName.StartsWith(" ") || usrUserName.EndsWith(" "))
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -31,7 +59,7 @@ namespace FahrgemeinschaftsAPP
             }
 
 
-            Console.WriteLine("gebe dein password ein: ");
+            Console.WriteLine("enter you password: ");
             Console.Write("> "); string usrPassword = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(usrPassword))
             {
@@ -44,12 +72,12 @@ namespace FahrgemeinschaftsAPP
                 goto RegLoop;
             }
 
-            Console.WriteLine("Bitte wiederhole dein password: ");
+            Console.WriteLine("please repeat your password: ");
             Console.Write("> "); string usrPasswordconf = Console.ReadLine();
             if (usrPasswordconf == usrPassword)
             {
                 Console.Clear();
-                File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{usrUsername};{usrPassword}\n");
+                File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{usrUserName};{usrPassword}\n");
             }
             else
             {
@@ -61,6 +89,8 @@ namespace FahrgemeinschaftsAPP
                 Console.ForegroundColor = ConsoleColor.White;
                 goto RegLoop;
             }
+
+            
 
 
         }
