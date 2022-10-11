@@ -28,7 +28,7 @@ namespace FahrgemeinschaftsAPP
                 Console.WriteLine("What do you want your username to be?: ");
                 Console.Write("> ");
                 var UserInputName = Console.ReadLine();
-                if (UserInputName == regex.ToString())
+                if (regex.IsMatch(UserInputName))
                 {
                     usrUserName = (UserInputName.ToString());
                     break;
