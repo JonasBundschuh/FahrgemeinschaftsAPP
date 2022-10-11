@@ -12,6 +12,9 @@ namespace FahrgemeinschaftsAPP
 
         static void Main(string[] args)
         {
+            
+
+            var CCollor = ConsoleColor.Yellow;
             Console.Title = "CarpoolApp by Jonas";
 
         Beginning:
@@ -23,7 +26,7 @@ namespace FahrgemeinschaftsAPP
                 Console.Clear();
                 Console.WriteLine("Please choose a option: ");
                 Console.WriteLine("------------------------");
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = CCollor;
                 Console.WriteLine("[1] Login ");
                 Console.WriteLine("[2] Register ");
                 Console.WriteLine("[3] Exit");
@@ -34,12 +37,24 @@ namespace FahrgemeinschaftsAPP
 
                 if (char.IsDigit(userChoice.KeyChar))
                 {
+                    
+                    
                     UI = int.Parse(userChoice.KeyChar.ToString());
                     break;
 
                 }
 
             } while (true);
+            if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv"))
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Please Register first!");
+                Thread.Sleep(2000);
+                Console.ForegroundColor = ConsoleColor.White;
+                var RegFirst = new Reg();
+                RegFirst.Registration();
+            }
 
             //if user choose login (1)
             if (UI == 1)
@@ -281,6 +296,7 @@ namespace FahrgemeinschaftsAPP
         //CSV datei nach benutzernamen durchsuchen
         private static bool CheckifUserNameExistD(string usrName)
         {
+           
             string[] readText3 = File.ReadAllLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", Encoding.UTF8);
             List<string> readList3 = readText3.ToList();
             var filteredUsername = readText3.FirstOrDefault(x => x.Split(';').First() == usrName);

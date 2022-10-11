@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Dynamic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -19,11 +18,12 @@ namespace FahrgemeinschaftsAPP
             }
 
         RegLoop:
-           
+
             Regex regex = new Regex(@"[a-zA-Z]");
             string usrUserName;
             do
             {
+                Console.WriteLine("Please register!");
                 Console.Clear();
                 Console.WriteLine("What do you want your username to be?: ");
                 Console.Write("> ");
@@ -44,9 +44,7 @@ namespace FahrgemeinschaftsAPP
                 }
             } while (true);
 
-            
 
-            bool invalidChar = usrUserName.Contains(" ");
             if (usrUserName.StartsWith(" ") || usrUserName.EndsWith(" "))
             {
                 Console.Clear();
@@ -90,7 +88,7 @@ namespace FahrgemeinschaftsAPP
                 goto RegLoop;
             }
 
-            
+
 
 
         }

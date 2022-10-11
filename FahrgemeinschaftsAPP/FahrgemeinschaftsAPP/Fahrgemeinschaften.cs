@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Remoting.Channels;
 using System.Threading;
 
 namespace FahrgemeinschaftsAPP
@@ -65,7 +66,7 @@ namespace FahrgemeinschaftsAPP
                 Console.WriteLine("When do you start driving?: ");
                 string timeStart = Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine($"When do you want to be in {EndLoc}? ");
+                Console.WriteLine($"When do you want to be in {endLoc}? ");
                 string timeEnd = Console.ReadLine();
                 Console.Clear();
                 foreach (string file in Directory.EnumerateFiles("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Fahrgemeinschaften", "*.csv"))
@@ -139,8 +140,10 @@ namespace FahrgemeinschaftsAPP
                         }
                     }
                 }
+                Console.WriteLine(" ");
                 Console.WriteLine("[4] back to Menu");
                 Console.WriteLine("[5] join a Carpool");
+                Console.WriteLine("[6] leave a Carpool");
                 Console.Write("> ");
 
                 BackToHome = Console.ReadKey();
@@ -158,6 +161,10 @@ namespace FahrgemeinschaftsAPP
                 {
 
                     JoinCarpool();
+                }
+                else if (BTH == 6)
+                {
+                    LeaveCarpool();
                 }
                 else
                 {
@@ -193,13 +200,56 @@ namespace FahrgemeinschaftsAPP
                 Console.Clear();
                 DisplayCarpools();
             }
+            else if (userJoinCarPool == "n")
+            {
+                DisplayCarpools();
+            }
+        }
+
+        public void LeaveCarpool()
+        {
+            Console.WriteLine("Would you like to leave a carpool (y/n)?  ");
+            string userLeaveCarpool = Console.ReadLine();
+            if (userLeaveCarpool == "y")
+            {
+                Console.WriteLine("Please enter the ID of the Carpool you would like to leave: ");
+                int idToLeave = Convert.ToInt32(Console.ReadLine());
+                File.Delete($"C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Fahrgemeinschaften\\Fahrgemeinschaft{idToLeave}.csv");
+                File.AppendAllText($"C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Fahrgemeinschaften\\Fahrgemeinschaft{idToLeave}.csv", $"{Id};{FreeSeats};{Smoke};{FullName};{StartLoc};{EndLoc};{TimeEnd}");
+                Console.Clear();
+                DisplayCarpools();
+            }
+            else if(userLeaveCarpool == "n")
+            {
+                Console.Clear();
+                DisplayCarpools();
+            }
+            
         }
 
         public void DeleteCarpool()
         {
-            Console.WriteLine("What is the ID of the Carpool you want to delete: ");
-            int IDtoDelete = Convert.ToInt32(Console.ReadLine());
-            File.Delete($"C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Fahrgemeinschaften\\Fahrgemeinschaft{IDtoDelete}.csv");
+            Console.WriteLine("Would you like to delete a Carpool?");
+            string usrDelCarpool = Console.ReadLine();
+            if (usrDelCarpool == "y")
+            {
+                Console.WriteLine("What is the ID of the Carpool you want to delete: ");
+                int IDtoDelete = Convert.ToInt32(Console.ReadLine());
+                File.Delete($"C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Fahrgemeinschaften\\Fahrgemeinschaft{IDtoDelete}.csv");
+            }
+            else if (usrDelCarpool == "n")
+            {
+                DisplayCarpools();
+            }
+            else
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{usrDelCarpool} is not a valid option!");
+                Thread.Sleep(2000);
+                Console.ForegroundColor= ConsoleColor.White;    
+            }
+            
         }
     }
 }

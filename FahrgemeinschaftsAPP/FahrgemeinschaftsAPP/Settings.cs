@@ -5,6 +5,7 @@ namespace FahrgemeinschaftsAPP
 {
     public class Settings : Program
     {
+        
         public void SettingsDisplay()
         {
             Console.Title = "CarpoolApp | Settings";
@@ -42,8 +43,7 @@ namespace FahrgemeinschaftsAPP
                 if (SC == 1)
                 {
                     Console.Clear();
-                    Console.WriteLine("Coming soon.");
-                    Thread.Sleep(2000);
+                    ChangeColor();
                 }
                 else if (SC == 2)
                 {
@@ -75,6 +75,66 @@ namespace FahrgemeinschaftsAPP
 
 
 
+        }
+        public void ChangeColor()
+        {
+            int UCC = 0;
+            ConsoleKeyInfo usrColorChoice;
+            do
+            {
+                Console.Clear();
+                DisplayColors();
+                Console.WriteLine(" ");
+                Console.WriteLine("Please choose one of the above listed colors: ");
+                usrColorChoice = Console.ReadKey();
+
+                if (char.IsDigit(usrColorChoice.KeyChar))
+                {
+                    UCC = int.Parse(usrColorChoice.KeyChar.ToString());
+                    break;
+                }
+
+                switch (UCC)
+                {
+                    case 0:
+                        var CColer = ConsoleColor.Red;
+                        break;
+                    case 1:
+                        CColer = ConsoleColor.Blue;
+                        break;
+                    case 2:
+                        CColer = ConsoleColor.Green;
+                        break;
+                    case 3:
+                        CColer = ConsoleColor.Yellow;
+                        break;
+                    case 4:
+                        CColer = ConsoleColor.Cyan;
+                        break;
+                    case 5:
+                        CColer = ConsoleColor.DarkBlue;
+                        break;
+                    case 6:
+                        CColer = ConsoleColor.Magenta;
+                        break;
+                    default:
+                        CColer = ConsoleColor.White;
+                        break;
+                }
+
+
+            } while (true);
+
+
+        }
+        public void DisplayColors()
+        {
+            Console.WriteLine("[1] Red");
+            Console.WriteLine("[2] Blue");
+            Console.WriteLine("[3] Green");
+            Console.WriteLine("[4] Yellow");
+            Console.WriteLine("[5] Cyan");
+            Console.WriteLine("[6] Magenta");
         }
     }
 }

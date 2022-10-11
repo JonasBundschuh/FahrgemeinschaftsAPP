@@ -10,6 +10,7 @@ namespace FahrgemeinschaftsAPP
     {
         public void AddDrivers()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             int FA = 0;
             ConsoleKeyInfo fahrerAnzahl;
             do
@@ -42,6 +43,7 @@ namespace FahrgemeinschaftsAPP
                 Thread.Sleep(2000);
             }
         }
+
 
         List<string> Drivers;
         public void DisplayDriver()
