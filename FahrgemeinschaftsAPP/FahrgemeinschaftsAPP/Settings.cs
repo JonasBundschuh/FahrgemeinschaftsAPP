@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
     public class Settings : Program
     {
-        
+
         public void SettingsDisplay()
         {
             Console.Title = "CarpoolApp | Settings";
@@ -48,13 +50,13 @@ namespace FahrgemeinschaftsAPP
                 else if (SC == 2)
                 {
                     Console.Clear();
-                    Console.WriteLine("Coming soon.");
+                    ChangeUsername();
                 }
                 else if (SC == 3)
                 {
-                    Console.Clear();
-                    Console.WriteLine("Coming soon.");
-                    Thread.Sleep(2000);
+                    ChangePass();
+                    Console.WriteLine("Password changed successfully");
+                    Thread.Sleep(1500);
                     goto Settings;
                 }
                 else if (SC == 4)
@@ -135,6 +137,28 @@ namespace FahrgemeinschaftsAPP
             Console.WriteLine("[4] Yellow");
             Console.WriteLine("[5] Cyan");
             Console.WriteLine("[6] Magenta");
+        }        
+        public void ChangeUsername()
+        {
+            Console.WriteLine("What would you like to change your Username to? ");
+            string NewUsrName = Console.ReadLine();
+            
+            string oldPassWordIn = File.ReadAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv");
+            string[] SplittedOldLog = oldPassWordIn.Split(';');
+            string oldPass = SplittedOldLog[1];
+            File.Delete("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv");
+            File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{NewUsrName};{oldPass}");
+        }
+        public void ChangePass()
+        {
+            Console.WriteLine("What would you like to change your password to? ");
+            string NewPass = Console.ReadLine();
+
+            string oldUserNameIn = File.ReadAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv");
+            string[] SplittedOldLog = oldUserNameIn.Split(';');
+            string oldUser = SplittedOldLog[0];
+            File.Delete("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv");
+            File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{oldUser};{NewPass}");
         }
     }
 }
