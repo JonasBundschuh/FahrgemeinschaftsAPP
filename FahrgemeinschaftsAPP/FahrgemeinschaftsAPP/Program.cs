@@ -66,11 +66,11 @@ namespace FahrgemeinschaftsAPP
                 Console.WriteLine("Please enter your Username: ");
                 Console.ForegroundColor = ConsoleColor.White;
 
-                //benutzernamen überprüfen
+                //check username
                 Console.Write("> "); string usrName = Console.ReadLine();
                 if (CheckifUserNameExistD(usrName))
                 {
-                    //Password überprüfen
+                    //Check Password
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Please enter your Password: ");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -79,12 +79,13 @@ namespace FahrgemeinschaftsAPP
                     {
 
 
-                        //Willkommens screen + optionen
+                        //Display Welcome Banner +/ Options
                         int USC1 = 0;
                         ConsoleKeyInfo userInputChoice;
                     home:
                         do
                         {
+                            //Sleeps für "Animation"
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("    ###       ###  ##########   ###         ########   ##########    ###     ###   ########## ");
@@ -144,7 +145,7 @@ namespace FahrgemeinschaftsAPP
                                 break;
                             }
                         } while (true);
-                        //Opionen auswählen                     
+                        //Choose Option                    
                         if (USC1 == 1)
                         {
                             var drive = new Driver();
@@ -229,7 +230,7 @@ namespace FahrgemeinschaftsAPP
                             goto home;
                         }
                     }
-                    //überprüfen ob das password mit einem space anfängt/endet oder daraus besteht
+                    //Check if password contains / starts / ends with a space 
                     else if (string.IsNullOrWhiteSpace(usrPass))
                     {
                         Console.Clear();
@@ -246,7 +247,7 @@ namespace FahrgemeinschaftsAPP
                         Console.WriteLine("Invalid Password or username, please try again.");
                     }
                 }
-                //überprüfen ob der benutzername mit einem space anfängt/endet oder daraus besteht
+                //Check if username contains / starts / ends with a space
                 else if (string.IsNullOrWhiteSpace(usrName))
                 {
                     Console.Clear();
@@ -263,7 +264,7 @@ namespace FahrgemeinschaftsAPP
                     Console.WriteLine("Invalid Password or username, please try again.");
                 }
             }
-            //Benutzer wählt option 2 (Registrierung)
+            //User chose option 2 (Registration)
             else if (UI == 2)
             {
                 var bar = new Reg();
@@ -273,7 +274,7 @@ namespace FahrgemeinschaftsAPP
                 Thread.Sleep(2000);
                 goto Beginning;
             }
-            //Bentuter wählt option 3 (Beenden)
+            //User chose option 3 (Close)
             else if (UI == 3)
             {
                 Console.Clear();
@@ -281,7 +282,7 @@ namespace FahrgemeinschaftsAPP
                 Thread.Sleep(1500);
                 Environment.Exit(1);
             }
-            //Falsche eingabe detecten
+            //Detect invalid input
             else
             {
                 Console.Clear();
@@ -293,7 +294,12 @@ namespace FahrgemeinschaftsAPP
             }
             Console.ReadLine();
         }
-        //CSV datei nach benutzernamen durchsuchen
+
+        /// <summary>
+        /// Search for username in "Log" file
+        /// </summary>
+        /// <param name="usrName"></param>
+        /// <returns></returns>
         private static bool CheckifUserNameExistD(string usrName)
         {
            
@@ -307,7 +313,11 @@ namespace FahrgemeinschaftsAPP
             return false;
         }
 
-        //CSV datei nach password durchsuchen
+        /// <summary>
+        /// Search for password in "Log" file
+        /// </summary>
+        /// <param name="usrPassword"></param>
+        /// <returns></returns>
         private static bool CheckifUserPassExistD(string usrPassword)
         {
             string[] readText3 = File.ReadAllLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", Encoding.UTF8);

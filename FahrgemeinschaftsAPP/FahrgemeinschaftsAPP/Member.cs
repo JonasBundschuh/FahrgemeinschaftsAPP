@@ -11,6 +11,9 @@ namespace FahrgemeinschaftsAPP
     {
         string memberPath = "C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv";
         List<string> Members;
+        /// <summary>
+        /// Mitfahrer Hinzufügen
+        /// </summary>
         public void AddMembere()
         {
             Console.Clear();
@@ -58,6 +61,9 @@ namespace FahrgemeinschaftsAPP
             //FileStream fs = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Users.csv", FileMode.Open);
 
         }
+        /// <summary>
+        /// Fahrer hinzufügen
+        /// </summary>
         public void DisplayMembers()
         {
             List<string> lines = System.IO.File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv").ToList();

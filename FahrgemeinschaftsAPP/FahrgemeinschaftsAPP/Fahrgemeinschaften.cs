@@ -6,6 +6,9 @@ using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
+    /// <summary>
+    /// dlfkgdlfkgmldf
+    /// </summary>
     public class Fahrgemeinschaften
     {
         public int Id { set; get; }
@@ -29,6 +32,9 @@ namespace FahrgemeinschaftsAPP
             TimeEnd = "";
         }
 
+        /// <summary>
+        /// Fahrgemeinschaft/en hinzufügen
+        /// </summary>
         public void Fahrgemeinschaft()
         {
 
@@ -81,6 +87,10 @@ namespace FahrgemeinschaftsAPP
             Console.Clear();
             Console.WriteLine("Carpools added successfully!");
         }
+
+        /// <summary>
+        /// Fahrgemeinschaften anzeigen
+        /// </summary>
         public void DisplayCarpools()
         {
         CrapoolDisplay:
@@ -144,6 +154,7 @@ namespace FahrgemeinschaftsAPP
                 Console.WriteLine("[4] back to Menu");
                 Console.WriteLine("[5] join a Carpool");
                 Console.WriteLine("[6] leave a Carpool");
+                Console.WriteLine("[7] delete a Carpool");
                 Console.Write("> ");
 
                 BackToHome = Console.ReadKey();
@@ -166,6 +177,10 @@ namespace FahrgemeinschaftsAPP
                 {
                     LeaveCarpool();
                 }
+                else if (BTH == 7)
+                {
+                    DeleteCarpool();
+                }
                 else
                 {
                     Console.Clear();
@@ -185,8 +200,14 @@ namespace FahrgemeinschaftsAPP
 
 
         }
+
+        /// <summary>
+        /// Fahrgemeinschaft beitreten
+        /// </summary>
         public void JoinCarpool()
         {
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
             Console.WriteLine("Would you like to join any of the listed carpools? (y/n)");
             string userJoinCarPool = Console.ReadLine();
             Console.WriteLine("Under what name would you like to join the carpool?:");
@@ -206,8 +227,13 @@ namespace FahrgemeinschaftsAPP
             }
         }
 
+        /// <summary>
+        /// Fahrgemeinschaft verlassen
+        /// </summary>
         public void LeaveCarpool()
         {
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
             Console.WriteLine("Would you like to leave a carpool (y/n)?  ");
             string userLeaveCarpool = Console.ReadLine();
             if (userLeaveCarpool == "y")
@@ -227,9 +253,14 @@ namespace FahrgemeinschaftsAPP
             
         }
 
+        /// <summary>
+        /// Fahrgemeinschaft löschen
+        /// </summary>
         public void DeleteCarpool()
         {
-            Console.WriteLine("Would you like to delete a Carpool?");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("Would you like to delete a Carpool? (y/n)");
             string usrDelCarpool = Console.ReadLine();
             if (usrDelCarpool == "y")
             {

@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
-    public class Settings : Program
+    public class Settings
     {
-
+        /// <summary>
+        /// Display Settings and Option
+        /// </summary>
         public void SettingsDisplay()
         {
             Console.Title = "CarpoolApp | Settings";
@@ -78,6 +79,9 @@ namespace FahrgemeinschaftsAPP
 
 
         }
+        /// <summary>
+        /// Overwrite Color Variable
+        /// </summary>
         public void ChangeColor()
         {
             int UCC = 0;
@@ -123,12 +127,11 @@ namespace FahrgemeinschaftsAPP
                         CColer = ConsoleColor.White;
                         break;
                 }
-
-
             } while (true);
-
-
         }
+        /// <summary>
+        /// Display all colors the User can choose from
+        /// </summary>
         public void DisplayColors()
         {
             Console.WriteLine("[1] Red");
@@ -137,20 +140,27 @@ namespace FahrgemeinschaftsAPP
             Console.WriteLine("[4] Yellow");
             Console.WriteLine("[5] Cyan");
             Console.WriteLine("[6] Magenta");
-        }        
+        }
+        /// <summary>
+        /// Change Username of the registered User
+        /// </summary>
         public void ChangeUsername()
         {
             Console.WriteLine("What would you like to change your Username to? ");
             string NewUsrName = Console.ReadLine();
-            
+
             string oldPassWordIn = File.ReadAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv");
             string[] SplittedOldLog = oldPassWordIn.Split(';');
             string oldPass = SplittedOldLog[1];
             File.Delete("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv");
             File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{NewUsrName};{oldPass}");
         }
+        /// <summary>
+        /// Change Password of the Registered User
+        /// </summary>
         public void ChangePass()
         {
+            Console.Clear();
             Console.WriteLine("What would you like to change your password to? ");
             string NewPass = Console.ReadLine();
 

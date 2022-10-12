@@ -8,6 +8,10 @@ namespace FahrgemeinschaftsAPP
 {
     public class Driver
     {
+
+        /// <summary>
+        /// Fahrer hinzufügen
+        /// </summary>
         public void AddDrivers()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -46,11 +50,20 @@ namespace FahrgemeinschaftsAPP
 
 
         List<string> Drivers;
+
+        /// <summary>
+        /// Fahrer anzeigen
+        /// </summary>
         public void DisplayDriver()
         {
         DisplayDrivers:
             Console.Clear();
             Console.Title = $"FahrgemeinschaftsApp | Displaying Drivers";
+            if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv"))
+            {
+                File.Create("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv");
+                goto DisplayDrivers;
+            }            
             Drivers = File.ReadLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Drivers.csv").ToList();
 
             foreach (string driver in Drivers)

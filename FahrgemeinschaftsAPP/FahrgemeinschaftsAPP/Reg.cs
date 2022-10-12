@@ -7,6 +7,9 @@ namespace FahrgemeinschaftsAPP
 {
     public class Reg
     {
+        /// <summary>
+        /// User registers | Ceation of Username & Password | Saves Login Credentials in "Log.csv"
+        /// </summary>
         public void Registration()
         {
             Console.Title = "CarpoolApp | Registration";
@@ -18,7 +21,8 @@ namespace FahrgemeinschaftsAPP
             }
 
         RegLoop:
-
+            
+            //Überprüfen ob der Benutzername aus buchstaben besteht
             Regex regex = new Regex(@"[a-zA-Z]");
             string usrUserName;
             do
@@ -34,7 +38,7 @@ namespace FahrgemeinschaftsAPP
                     break;
                 }
                 else
-                {
+                { 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"please only enter letters!");
@@ -87,12 +91,7 @@ namespace FahrgemeinschaftsAPP
                 Console.ForegroundColor = ConsoleColor.White;
                 goto RegLoop;
             }
-
-
-
-
         }
-
 
     }
 }
