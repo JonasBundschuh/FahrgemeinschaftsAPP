@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
+    /// <summary>
+    /// Class to manage Members
+    /// </summary>
     public class Member
     {
         string memberPath = "C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Members.csv";

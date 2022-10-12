@@ -6,6 +6,9 @@ using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
+    /// <summary>
+    /// Class to manager Drivers
+    /// </summary>
     public class Driver
     {
 

@@ -4,6 +4,9 @@ using System.Threading;
 
 namespace FahrgemeinschaftsAPP
 {
+    /// <summary>
+    /// Class for managing settings
+    /// </summary>
     public class Settings
     {
         /// <summary>

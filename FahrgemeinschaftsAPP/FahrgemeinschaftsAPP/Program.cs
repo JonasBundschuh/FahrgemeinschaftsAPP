@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FahrgemeinschaftsAPP
 {
@@ -30,6 +32,7 @@ namespace FahrgemeinschaftsAPP
                 Console.WriteLine("[1] Login ");
                 Console.WriteLine("[2] Register ");
                 Console.WriteLine("[3] Exit");
+                Console.WriteLine("[4] Restart");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("------------------------");
                 Console.Write("> ");
@@ -138,20 +141,23 @@ namespace FahrgemeinschaftsAPP
                             Console.WriteLine("------------------------");
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write("> ");
+                            //Get Input from user to choose option in main menu
                             userInputChoice = Console.ReadKey();
+                            //Check if Input is a Digitm if not go back to Home:
                             if (char.IsDigit(userInputChoice.KeyChar))
                             {
                                 USC1 = int.Parse(userInputChoice.KeyChar.ToString());
                                 break;
                             }
                         } while (true);
-                        //Choose Option                    
+                        //If user choose option 1 start AddDriver method and save all added drivers in "Drivers.csv"                    
                         if (USC1 == 1)
                         {
                             var drive = new Driver();
                             drive.AddDrivers();
                             goto home;
                         }
+                        //If user choose option 2 start AddMember method and save all added members in "Members.csv"
                         else if (USC1 == 2)
                         {
                             Member newMember = new Member();
@@ -159,6 +165,7 @@ namespace FahrgemeinschaftsAPP
                             Thread.Sleep(2000);
                             goto home;
                         }
+                        //If user choose option 3 Display all Drivers in "Driver.csv"
                         else if (USC1 == 3)
                         {
                             Console.Clear();
@@ -166,6 +173,7 @@ namespace FahrgemeinschaftsAPP
                             SD.DisplayDriver();
                             goto home;
                         }
+                        //If user choose option 4 Display all Members in "Member.csv"
                         else if (USC1 == 4)
                         {
                             var dm = new Member();
@@ -191,6 +199,7 @@ namespace FahrgemeinschaftsAPP
                             } while (true);
 
                         }
+                        //If user choose Option 5 start Carpool method (Fahrgemeinschaften) + Add Carpools (1 Carpool = 1 File)
                         else if (USC1 == 5)
                         {
                             var FG = new Fahrgemeinschaften();
@@ -199,23 +208,27 @@ namespace FahrgemeinschaftsAPP
                             Console.Clear();
                             goto home;
                         }
+                        //If user choose Option 6 start DesplayCarP method | Display all Carpools in "Fahrgemeinschaften" Folder
                         else if (USC1 == 6)
                         {
                             Fahrgemeinschaften DisplayCarP = new Fahrgemeinschaften();
                             DisplayCarP.DisplayCarpools();
                             goto home;
                         }
+                        //If user choose Option 7 start SettingsDisplay Method | Display all Settings options
                         else if (USC1 == 7)
                         {
                             var s = new Settings();
                             s.SettingsDisplay();
                             goto home;
                         }
+                        //If user choose Option 8 go back to "Beginning" label
                         else if (USC1 == 8)
                         {
                             Console.Clear();
                             goto Beginning;
                         }
+                        //Option for testing
                         else if (USC1 == 9)
                         {
                             Fahrgemeinschaften DelCarpool = new Fahrgemeinschaften();
@@ -223,6 +236,7 @@ namespace FahrgemeinschaftsAPP
                             Thread.Sleep(2000);
                             goto home;
                         }
+                        //If user choose non existing option, write error message
                         else
                         {
                             Console.WriteLine("invalid input, please try again!");
@@ -241,6 +255,7 @@ namespace FahrgemeinschaftsAPP
                         Console.ForegroundColor = ConsoleColor.White;
                         goto Beginning;
                     }
+                    //if password / username are not found in "Log" file write error message
                     else
                     {
                         Console.Clear();
@@ -281,6 +296,14 @@ namespace FahrgemeinschaftsAPP
                 Console.WriteLine("Goodbye!");
                 Thread.Sleep(1500);
                 Environment.Exit(1);
+            }
+            else if(UI == 4)
+            {
+                var CarPoolApp = Assembly.GetExecutingAssembly().Location;
+                System.Diagnostics.Process.Start(CarPoolApp);
+                Environment.Exit(0);
+                
+                
             }
             //Detect invalid input
             else

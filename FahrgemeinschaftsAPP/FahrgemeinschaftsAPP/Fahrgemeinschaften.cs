@@ -7,7 +7,8 @@ using System.Threading;
 namespace FahrgemeinschaftsAPP
 {
     /// <summary>
-    /// dlfkgdlfkgmldf
+    /// 
+    /// Class to Manage Carpools
     /// </summary>
     public class Fahrgemeinschaften
     {
