@@ -19,3 +19,5 @@
  - Change Theme
  - Change Username
  - Change Password
+
+https://imgur.com/a/71KVWdE
