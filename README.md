@@ -20,4 +20,5 @@
  - Change Username
  - Change Password
 
-https://imgur.com/a/71KVWdE
+![alt text]([http://url/to/img.png](https://imgur.com/a/71KVWdE))
+
