@@ -20,5 +20,4 @@
  - Change Username
  - Change Password
 
-![alt text](https://ibb.co/84Bmysc)
-
+![This is an image](https://ibb.co/84Bmysc)
