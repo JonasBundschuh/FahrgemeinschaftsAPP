@@ -20,5 +20,5 @@
  - Change Username
  - Change Password
 
-![alt text]([http://url/to/img.png](https://imgur.com/a/71KVWdE))
+![alt text](https://ibb.co/84Bmysc)
 
