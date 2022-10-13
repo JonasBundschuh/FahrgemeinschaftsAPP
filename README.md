@@ -20,4 +20,4 @@
  - Change Username
  - Change Password
 
-![This is an image](https://ibb.co/84Bmysc)
+![This is an image](https://imgur.com/a/71KVWdE)
