@@ -5,7 +5,7 @@
 ### Having the following features:
 
 
-> 🔰 1. Driver Options
+> <span style="color: red;">🔰 1. Driver Options</span>  
 - Add Drivers
 - Display Drivers
 
