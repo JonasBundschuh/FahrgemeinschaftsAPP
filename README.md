@@ -1,18 +1,18 @@
 # FahrgemeinschaftsAPP
 
-## 🚌 FahrgemeinscaftsAPP is an app to create, manage carpools.
+## 🚌 FahrgemeinscaftsAPP is an console-app to create, manage carpools.
 
 ### Having the following features:
 
 
-> 🔰  1. Driver Options==
+> 🔰  1. Driver Options
 - Add Drivers
 - Display Drivers
 
-> 🧍 2. Member Options==
+> 🧍 2. Member Options
 - Add Members
 - Display Members
-> ✨ 3. Carpool Options==
+> ✨ 3. Carpool Options
 - Add Carpools
 - Display Carpools
 - Join / Leave Carpools
