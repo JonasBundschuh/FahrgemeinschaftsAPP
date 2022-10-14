@@ -5,7 +5,7 @@
 ### Having the following features:
 
 
-> 🔰 1. Driver Options \textcolor{red}{red}
+> 🔰 1. Driver Options
 - Add Drivers
 - Display Drivers
 
