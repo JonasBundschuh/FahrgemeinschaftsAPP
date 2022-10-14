@@ -23,3 +23,9 @@
 
 ## 📷 Example Image:
 ![This is an image](https://github.com/JonasBundschuh/FahrgemeinschaftsAPP/blob/main/Assets/bCa9LT0.png?raw=true)
+
+## ToDo
+- [x] Add option to join a carpool
+- [x] Add option to leave the joined carpool
+- [x] Fix Carpool Display Formatting
+- [ ] Finish Theme Option
