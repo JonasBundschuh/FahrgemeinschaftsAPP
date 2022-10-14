@@ -5,7 +5,7 @@
 ### Having the following features:
 
 
-> <span style="color: red;">🔰 1. Driver Options</span>  
+> 🔰 1. Driver Options \textcolor{red}{red}
 - Add Drivers
 - Display Drivers
 
