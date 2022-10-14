@@ -5,18 +5,18 @@
 ### Having the following features:
 
 
- ==🔰  1. Driver Options==
+> 🔰  1. Driver Options==
 - Add Drivers
 - Display Drivers
 
-==🧍 2. Member Options==
+> 🧍 2. Member Options==
 - Add Members
 - Display Members
-==✨ 3. Carpool Options==
+> ✨ 3. Carpool Options==
 - Add Carpools
 - Display Carpools
 - Join / Leave Carpools
-==⚙️ 4. Settings==
+> ⚙️ 4. Settings==
  - Change Theme
  - Change Username
  - Change Password
