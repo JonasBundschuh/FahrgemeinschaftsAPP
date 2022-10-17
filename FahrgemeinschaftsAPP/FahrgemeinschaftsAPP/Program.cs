@@ -48,7 +48,7 @@ namespace FahrgemeinschaftsAPP
                 }
 
             } while (true);
-            if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv"))
+            if (!File.Exists("C:\\Projects\\FahrgemeinschaftsAPP\\bin\\Log.csv"))
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -326,7 +326,7 @@ namespace FahrgemeinschaftsAPP
         private static bool CheckifUserNameExistD(string usrName)
         {
            
-            string[] readText3 = File.ReadAllLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", Encoding.UTF8);
+            string[] readText3 = File.ReadAllLines("C:\\Projects\\FahrgemeinschaftsAPP\\bin\\Log.csv", Encoding.UTF8);
             List<string> readList3 = readText3.ToList();
             var filteredUsername = readText3.FirstOrDefault(x => x.Split(';').First() == usrName);
             if (filteredUsername != null)
@@ -343,7 +343,7 @@ namespace FahrgemeinschaftsAPP
         /// <returns></returns>
         private static bool CheckifUserPassExistD(string usrPassword)
         {
-            string[] readText3 = File.ReadAllLines("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", Encoding.UTF8);
+            string[] readText3 = File.ReadAllLines("C:\\Projects\\FahrgemeinschaftsAPP\\bin\\Log.csv", Encoding.UTF8);
             List<string> readList3 = readText3.ToList();
             var filteredPassword = readText3.FirstOrDefault(x => x.Split(';').Last() == usrPassword);
             if (filteredPassword != null)

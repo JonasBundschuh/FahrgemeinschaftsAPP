@@ -14,9 +14,9 @@ namespace FahrgemeinschaftsAPP
         {
             Console.Title = "CarpoolApp | Registration";
             Console.Clear();
-            if (!File.Exists("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv"))
+            if (!File.Exists("C:\\Projects\\FahrgemeinschaftsAPP\\bin\\Log.csv"))
             {
-                FileStream newFile = new FileStream("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", FileMode.Create);
+                FileStream newFile = new FileStream("C:\\Projects\\FahrgemeinschaftsAPP\\bin\\Log.csv", FileMode.Create);
                 newFile.Close();
             }
 
@@ -79,7 +79,7 @@ namespace FahrgemeinschaftsAPP
             if (usrPasswordconf == usrPassword)
             {
                 Console.Clear();
-                File.AppendAllText("C:\\Projetcs\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{usrUserName};{usrPassword}\n");
+                File.AppendAllText("C:\\Projects\\FahrgemeinschaftsAPP\\bin\\Log.csv", $"{usrUserName};{usrPassword}\n");
             }
             else
             {
