@@ -16,6 +16,8 @@
 - Add Carpools
 - Display Carpools
 - Join / Leave Carpools
+- Delete all carpools
+- Delete Carpool by ID
 > ⚙️ 4. Settings==
  - Change Theme
  - Change Username
